@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Tip Calculator](https://tipwill-calculator.netlify.app/)
+- Live Site URL: [Clique para visitar o projeto](https://tipwill-calculator.netlify.app/)
 
 ## My process
 
