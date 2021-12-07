@@ -1,38 +1,168 @@
 .App {
+  margin-top: 10rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App h1 {
+  color: var(--very-dark-cyan);
+}
+
+.calcContainer {
+  width: 100vw;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+
+  background-color: var(--white);
+}
+
+.calcContainer input {
+  background-color: var(--light-grayish-cyan);
+  color: var(--very-dark-cyan);
+  font-weight: 700;
+  font-size: 1.7rem;
+  border: 0.2rem solid var(--light-grayish-cyan);
+  border-radius: 5px;
+  padding: 10px;
+  width: 95%;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.calcContainer input:focus {
+  border: 0.2rem solid var(--strong-cyan);
+  outline: var(--strong-cyan);
+}
+
+.inputGroupError input {
+  background-color: var(--light-grayish-cyan);
+  color: var(--very-dark-cyan);
+  font-weight: 700;
+  border: 0.2rem solid var(--light-grayish-cyan);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.inputGroupError .cantBeZero {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputGroupError input:focus {
+  border: 0.2rem solid red;
+  outline: red;
+}
+
+.output {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 20px 15px 20px;
+  background-color: var(--very-dark-cyan);
+  border-radius: 12px;
+}
+
+.output > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.output > button {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.output .amountLabel {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1.6rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.output .perPerson {
+  color: var(--dark-grayish-cyan);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.output .calcResult {
+  color: var(--strong-cyan);
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+.grid-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.grid-buttons > button {
+  cursor: pointer;
+
+  border: none;
+  border-radius: 4px;
+  background-color: var(--very-dark-cyan);
+  color: var(--white);
+  max-width: 100px;
+  padding: 7px 12px;
+}
+
+.grid-buttons .customInput {
+  max-width: 76px;
+}
+
+.grid-buttons > button:focus {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.grid-buttons .customBtn {
+  background-color: var(--light-grayish-cyan);
+  color: var(--dark-grayish-cyan);
+}
+
+.output > button {
+  border: none;
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.output > button:disabled {
+  background-color: var(--dark-grayish-cyan);
+}
+
+@media (min-width: 700px) {
+  .App {
+    margin-top: 0rem;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  .calcContainer {
+    width: 60vw;
+    flex-direction: row;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+
+  .calcContainer input {
+    width: 85%;
+  }
+
+  .grid-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
