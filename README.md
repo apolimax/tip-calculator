@@ -47,5 +47,3 @@ Users should be able to:
 ### Continued development
 
 Still need to split the main app into smaller react components. Although is a very simple app, I intend to add unit testing and end to end testing.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
