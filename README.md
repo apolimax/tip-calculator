@@ -4,14 +4,15 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
+- [Frontend Mentor - Tip calculator app solution](#frontend-mentor---tip-calculator-app-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [Continued development](#continued-development)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -43,7 +44,9 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+- [Jest](https://jestjs.io/pt-BR/)
+- [React Testing Library](https://testing-library.com/)
 
 ### Continued development
 
-Still need to split the main app into smaller react components. Although is a very simple app, I intend to add unit testing and end to end testing.
+Lacking End To End Testing (E2E).
