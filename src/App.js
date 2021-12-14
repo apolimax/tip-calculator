@@ -1,6 +1,16 @@
 import { useState } from "react";
 
 import "./App.css";
+import Input from "./components/Input";
+import TipArea from "./components/TipArea";
+
+export const tipAmountPerPerson = (billValue, nPeople, tip) => {
+  return (billValue / nPeople) * (tip / 100);
+};
+
+export const totalAmountPerPerson = (billValue, nPeople) => {
+  return billValue / nPeople;
+};
 
 function App() {
   const [billValue, setBillValue] = useState(0);
@@ -23,62 +33,11 @@ function App() {
       </h1>
       <main className="calcContainer">
         <div className="input">
-          <div className="inputGroup">
-            <h2>Bill</h2>
-            <input
-              value={billValue}
-              onChange={(e) => setBillValue(e.target.value)}
-              type="number"
-            />
-          </div>
+          <Input label="Bill" value={billValue} onChange={setBillValue} />
           <div className="tip">
             <h2>Select Tip %</h2>
             <div className="grid-buttons">
-              <button
-                type="button"
-                onClick={() => {
-                  setTip(5);
-                  setIsCustomTip(false);
-                }}
-              >
-                5%
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setTip(10);
-                  setIsCustomTip(false);
-                }}
-              >
-                10%
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setTip(15);
-                  setIsCustomTip(false);
-                }}
-              >
-                15%
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setTip(25);
-                  setIsCustomTip(false);
-                }}
-              >
-                25%
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setTip(50);
-                  setIsCustomTip(false);
-                }}
-              >
-                50%
-              </button>
+              <TipArea setTip={setTip} setIsCustomTip={setIsCustomTip} />
               {!isCustomTip ? (
                 <button
                   type="button"
@@ -111,15 +70,11 @@ function App() {
               />
             </div>
           ) : (
-            <div className="inputGroup">
-              <h2>Number of people</h2>
-              <input
-                value={nPeople}
-                onChange={(e) => setNPeople(e.target.value)}
-                type="number"
-                min="0"
-              />
-            </div>
+            <Input
+              label="Number of people"
+              value={nPeople}
+              onChange={setNPeople}
+            />
           )}
         </div>
         <div className="output">
@@ -131,7 +86,7 @@ function App() {
             <p className="calcResult">
               $
               {billValue && nPeople >= 1 && tip
-                ? ((billValue / nPeople) * (tip / 100)).toFixed(2)
+                ? tipAmountPerPerson(billValue, nPeople, tip).toFixed(2)
                 : 0}
             </p>
           </div>
@@ -142,7 +97,9 @@ function App() {
             </p>
             <p className="calcResult">
               $
-              {billValue && nPeople >= 1 ? (billValue / nPeople).toFixed(2) : 0}
+              {billValue && nPeople >= 1
+                ? totalAmountPerPerson(billValue, nPeople).toFixed(2)
+                : 0}
             </p>
           </div>
           <button type="button" onClick={resetValues} disabled={!billValue}>

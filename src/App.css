@@ -1,6 +1,7 @@
 .App {
-  margin-top: 10rem;
+  margin-top: 13rem;
   height: 100vh;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,10 +13,10 @@
 }
 
 .calcContainer {
-  width: 100vw;
+  width: 85%;
   border-radius: 12px;
   padding: 30px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 
   display: grid;
   grid-template-columns: 1fr;
@@ -26,7 +27,6 @@
 }
 
 .calcContainer input {
-  background-color: var(--light-grayish-cyan);
   color: var(--very-dark-cyan);
   font-weight: 700;
   font-size: 1.7rem;
@@ -34,6 +34,10 @@
   border-radius: 5px;
   padding: 10px;
   width: 95%;
+}
+
+.bg-input {
+  background-color: var(--light-grayish-cyan);
 }
 
 .input {
@@ -132,6 +136,12 @@
 .grid-buttons .customBtn {
   background-color: var(--light-grayish-cyan);
   color: var(--dark-grayish-cyan);
+  cursor: pointer;
+
+  border: none;
+  border-radius: 4px;
+  max-width: 100px;
+  padding: 7px 12px;
 }
 
 .output > button {
