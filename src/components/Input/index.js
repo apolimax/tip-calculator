@@ -3,9 +3,11 @@ import "./styles.css";
 export default function Input({ label, value, onChange }) {
   return (
     <div className="inputGroup">
-      <h2>{label}</h2>
+      <label htmlFor={label}>{label}</label>
       <input
         className="bg-input"
+        id={label}
+        name={label}
         placeholder={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}

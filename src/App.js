@@ -13,13 +13,13 @@ export const totalAmountPerPerson = (billValue, nPeople) => {
 };
 
 function App() {
-  const [billValue, setBillValue] = useState(0);
+  const [billValue, setBillValue] = useState("");
   const [nPeople, setNPeople] = useState(1);
   const [tip, setTip] = useState(0);
   const [isCustomTip, setIsCustomTip] = useState(false);
 
   const resetValues = () => {
-    setBillValue(0);
+    setBillValue("");
     setNPeople(1);
     setTip(0);
   };

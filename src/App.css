@@ -26,6 +26,12 @@
   background-color: var(--white);
 }
 
+.calcContainer label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
 .calcContainer input {
   color: var(--very-dark-cyan);
   font-weight: 700;
