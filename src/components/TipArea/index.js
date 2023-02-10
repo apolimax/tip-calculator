@@ -4,7 +4,7 @@ import TipButton from "../TipButton";
 
 const tipsPercentages = [5, 10, 15, 25, 50];
 
-export default function TipArea({ setTip, setIsCustomTip }) {
+export default function TipArea({ setTip, setIsCustomTip, isCustomTip, tip }) {
   return (
     <>
       {tipsPercentages.map((tip, i) => {
@@ -17,6 +17,22 @@ export default function TipArea({ setTip, setIsCustomTip }) {
           />
         );
       })}
+      {!isCustomTip ? (
+        <button
+          type="button"
+          className="customBtn"
+          onClick={() => setIsCustomTip(true)}
+        >
+          Custom
+        </button>
+      ) : (
+        <input
+          type="number"
+          value={tip}
+          className="customInput"
+          onChange={(e) => setTip(e.target.value)}
+        />
+      )}
     </>
   );
 }

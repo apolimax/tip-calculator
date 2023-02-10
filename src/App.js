@@ -37,23 +37,12 @@ function App() {
           <div className="tip">
             <h2>Select Tip %</h2>
             <div className="grid-buttons">
-              <TipArea setTip={setTip} setIsCustomTip={setIsCustomTip} />
-              {!isCustomTip ? (
-                <button
-                  type="button"
-                  className="customBtn"
-                  onClick={() => setIsCustomTip(true)}
-                >
-                  Custom
-                </button>
-              ) : (
-                <input
-                  type="number"
-                  value={tip}
-                  className="customInput"
-                  onChange={(e) => setTip(e.target.value)}
-                />
-              )}
+              <TipArea
+                setTip={setTip}
+                setIsCustomTip={setIsCustomTip}
+                isCustomTip={isCustomTip}
+                tip={tip}
+              />
             </div>
           </div>
           {nPeople < 1 ? (
