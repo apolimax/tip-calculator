@@ -15,13 +15,13 @@ export const totalAmountPerPerson = (billValue, nPeople) => {
 function App() {
   const [billValue, setBillValue] = useState("");
   const [nPeople, setNPeople] = useState(1);
-  const [tip, setTip] = useState(0);
+  const [selectedTip, setSelectedTip] = useState(0);
   const [isCustomTip, setIsCustomTip] = useState(false);
 
   const resetValues = () => {
     setBillValue("");
     setNPeople(1);
-    setTip(0);
+    setSelectedTip(0);
   };
 
   return (
@@ -38,33 +38,18 @@ function App() {
             <h2>Select Tip %</h2>
             <div className="grid-buttons">
               <TipArea
-                setTip={setTip}
+                setSelectedTip={setSelectedTip}
                 setIsCustomTip={setIsCustomTip}
                 isCustomTip={isCustomTip}
-                tip={tip}
+                selectedTip={selectedTip}
               />
             </div>
           </div>
-          {nPeople < 1 ? (
-            <div className="inputGroupError">
-              <div className="cantBeZero">
-                <h2>Number of people</h2>
-                <h3 style={{ color: "red" }}>Can't be zero</h3>
-              </div>
-              <input
-                value={nPeople}
-                onChange={(e) => setNPeople(e.target.value)}
-                type="number"
-                min="0"
-              />
-            </div>
-          ) : (
-            <Input
-              label="Number of people"
-              value={nPeople}
-              onChange={setNPeople}
-            />
-          )}
+          <Input
+            label="Number of people"
+            value={nPeople}
+            onChange={setNPeople}
+          />
         </div>
         <div className="output">
           <div>
@@ -74,8 +59,8 @@ function App() {
             </p>
             <p className="calcResult">
               $
-              {billValue && nPeople >= 1 && tip
-                ? tipAmountPerPerson(billValue, nPeople, tip).toFixed(2)
+              {billValue && nPeople >= 1 && selectedTip
+                ? tipAmountPerPerson(billValue, nPeople, selectedTip).toFixed(2)
                 : 0}
             </p>
           </div>

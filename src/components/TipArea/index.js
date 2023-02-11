@@ -4,7 +4,12 @@ import TipButton from "../TipButton";
 
 const tipsPercentages = [5, 10, 15, 25, 50];
 
-export default function TipArea({ setTip, setIsCustomTip, isCustomTip, tip }) {
+export default function TipArea({
+  setSelectedTip,
+  setIsCustomTip,
+  isCustomTip,
+  selectedTip,
+}) {
   return (
     <>
       {tipsPercentages.map((tip, i) => {
@@ -12,8 +17,10 @@ export default function TipArea({ setTip, setIsCustomTip, isCustomTip, tip }) {
           <TipButton
             key={i}
             tip={tip}
-            setTip={setTip}
+            selectedTip={selectedTip}
+            setSelectedTip={setSelectedTip}
             setIsCustomTip={setIsCustomTip}
+            isCustomTip={isCustomTip}
           />
         );
       })}
@@ -28,9 +35,9 @@ export default function TipArea({ setTip, setIsCustomTip, isCustomTip, tip }) {
       ) : (
         <input
           type="number"
-          value={tip}
+          value={selectedTip}
           className="customInput"
-          onChange={(e) => setTip(e.target.value)}
+          onChange={(e) => setSelectedTip(e.target.value)}
         />
       )}
     </>
